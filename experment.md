@@ -1,7 +1,10 @@
 ---
 author: Keith Howell
-title: experiments
+title: experiment
 ---
+
+\tableofcontents
+
 
 # Introduction
 
@@ -12,16 +15,16 @@ To start this, choose a few algorithms. Then create a model based on the algorit
 ## Dataset 
 
 The dataset being used has eight attributes with yield being used at the target. The seven other attributes are Year, Country Area Harvested, Production, Seed, Rainfall and Temp. 
-All the attributes other then Coutry are numerical. Country just displays the country which the data was recored from it doesn't give the model any information. It is only in the dataset to ensure that one dataset can quickly be distigusted from another.  
-Year is the year in which the data was recoreded rangeing from 1961 to 2013. Area harvested is the total area in hectares which was harvested in a given year. Production is meausred in tonnes and is the amount of the crops grown that were processed after farming. Seed is in tonnes and is the amount of seed used for growing each year. 
+All the attributes other then Country are numerical. Country just displays the country which the data was recorded from it doesn't give the model any information. It is only in the dataset to ensure that one dataset can quickly be disgusted from another.  
+Year is the year in which the data was recorded ranging from 1961 to 2013. Area harvested is the total area in hectares which was harvested in a given year. Production is measured in tonnes and is the amount of the crops grown that were processed after farming. Seed is in tonnes and is the amount of seed used for growing each year. 
 Rainfall and Temp are both weather attributes they were not part of the same dataset as they both added after the collection of the crop data. Rainfall is the total amount of rain that for each year. The Temp is the total temperature for the year given. 
-The target attribute is the yield it is recored in hectogram/hectare. The yield is the return rate of crops in a season. 
+The target attribute is the yield it is recorded in hectogram/hectare. The yield is the return rate of crops in a season. 
 
 
-Before putting the data through a algorithm it will first be discretized. This is a process that changes the continuos predictors into bins or bands. Rather than getting the exact value of the yield, binning the data allows to the algorithms to find the category that the it best suits.
+Before putting the data through a algorithm it will first be discretized. This is a process that changes the continues predictors into bins or bands. Rather than getting the exact value of the yield, binning the data allows to the algorithms to find the category that the it best suits.
 This experiment will discretizes the data into 5 bins and will use equal width binning. Equal width binning will try to split up the dataset into groups that are intervals of the same size apart. This method can be effect by values with outliers however for this experiment it will be suitable as there aren't any extreme values. 
 
-After this process is done viuslating the data in a histogram will the output variable overlaid of each value gives a better understanding which variables as the most effect on the overall yields and which doesn't. 
+After this process is done visualising the data in a histogram will the output variable overlaid of each value gives a better understanding which variables as the most effect on the overall yields and which doesn't. 
 
 
 
@@ -36,7 +39,7 @@ like may be expected as each bin has a spread out through the histogram. While t
 
 ### India
 
-Seeing the data give a good picture as to what has effected the yields over time. The year plays a big part in the higher yields, as the later year having the higher yields. The area harvested is intresting as it shows the the highest area didn't have the highest yield. While the production shows the opposit. Of the two rainfall attributes rainfall didn't appear to have a big impact with the high yields spread out over the range, the temp attribute appears to have more of an impact as the higher total amount of sunshine the better the yields. 
+Seeing the data give a good picture as to what has effected the yields over time. The year plays a big part in the higher yields, as the later year having the higher yields. The area harvested is interesting as it shows the highest area didn't have the highest yield. While the production shows the opposite. Of the two rainfall attributes rainfall didn't appear to have a big impact with the high yields spread out over the range, the temp attribute appears to have more of an impact as the higher total amount of sunshine the better the yields. 
 
 ![India](pictures\farmingIndiaWheatEqualWidthBinning.PNG "Yields overlaid histogram India") 
 
@@ -59,7 +62,7 @@ J48 uses information gain which shows which of the predictor variables has the t
 
 ## K-nearest neighbour(kNN)
 
-K-nearest neighbour(kNN) is a widely known model and one of the most simply machine learning algorithms. It is an instance-based or lazy learner. This means it doesn’t require any training as it does its leaning from the data in the currently being used. 
+K-nearest neighbour(kNN) is a widely known model and one of the most simply machine learning algorithms. It is an instance-based or lazy learner. This means it doesn't require any training as it does its leaning from the data in the currently being used. 
 It works by analysing values around the target value. k is the number of values the model will consideration. If k = 1 then the model will only take one value and use that value as the output. If k = 3 the model will look at the 3 closes values and use the value that has the majority. For problems with only two classes k should always be an odd value to avoid ties. In other cases, k should not be a multiple of the number of classes again this is to avoid ties. 
 
 ## Naive Bayes 
@@ -85,7 +88,7 @@ Incorrectly Classified Instances        42               79.2453 %
 | 10 | 0 | 0 | 6 | 0 |  d = '(72066.2-85653.6]' |
 |  5 | 0 | 0 | 5 | 0 |  e = '(85653.6-inf)' |
 
-The results of the baseline test show that the zero R model got 20% instances correctly classified. This is a little over 1/5th which is the minumin expected for this model with only five classes. The results show that the model got 11 out of 53 predictions correct. 
+The results of the baseline test show that the zero R model got 20% instances correctly classified. This is a little over 1/5th which is the minimum expected for this model with only five classes. The results show that the model got 11 out of 53 predictions correct. 
 The Confusion Matrix gives a clearer picture as to what the model chooses for each prediction. With a and d having the most values they were the only ones predicted. The Matrix shows that ZeroR got 5 correct for a and 6 for d. This means that out of the times it classified the output as a, 25 in total it got 5 correct. For d it selected 28 times and got it correct 6 times.
 
 
@@ -119,6 +122,7 @@ The next leaves show the Rainfall and Production is where the data can be split.
                  0.000    0.042    0.000      0.000    0.000      -0.064   0.788     0.242     '(58478.8-72066.2]'
                  0.750    0.270    0.545      0.750    0.632      0.447    0.750     0.515     '(72066.2-85653.6]'
                  0.500    0.070    0.625      0.500    0.556      0.470    0.792     0.537     '(85653.6-inf)'
+
 Weighted Avg.    0.547    0.147    0.504      0.547    0.518      0.393    0.795     0.539     
 
 
@@ -152,7 +156,9 @@ The confusion matrix shows the values chosen were spread out more than J48. This
                  0.200    0.125    0.143      0.200    0.167      0.065    0.685     0.152     '(58478.8-72066.2]'
                  0.438    0.216    0.467      0.438    0.452      0.226    0.607     0.429     '(72066.2-85653.6]'
                  0.400    0.163    0.364      0.400    0.381      0.229    0.624     0.288     '(85653.6-inf)'
+
 Weighted Avg.    0.453    0.144    0.485      0.453    0.465      0.316    0.695     0.423     
+
 
 kNN doesn't have a high percentage of correctly classified instances, however it gives more answers for b and c then J48. Knowing how kNN works this is not a surprise. Looking at the TP rate shows that the model gets worse as the years go on, starting off with a high 0.600 and ended with 0.400. 
 The ROC Area also goes down as the years become more recent with it stating at 0.828 ending at 0.624 with the overall 0.695. This suggest the model is better than guessing but needs some tuning before it could be deployed.  
@@ -187,7 +193,9 @@ The weighted avg ROC Area for this model is 0.840 which gives a good indication 
                  0.200    0.063    0.250      0.200    0.222      0.152    0.817     0.266     '(58478.8-72066.2]'
                  0.625    0.135    0.667      0.625    0.645      0.499    0.814     0.601     '(72066.2-85653.6]'
                  0.500    0.116    0.500      0.500    0.500      0.384    0.788     0.416     '(85653.6-inf)'
+
 Weighted Avg.    0.623    0.102    0.619      0.623    0.619      0.516    0.840     0.553     
+
 
 # Results for wheat in India
 
@@ -274,6 +282,11 @@ This could be down to there being more instances as c the class with the lowest 
 
 # Conclusion 
 
-Testing the same models on the simlar data gives intresting results. The all the models inclueding the baseline porformed better when using the data from India then from Ireland. 
-In both cases Naive Bayes model proformed the best, proving a better correctly classified percentage and better ROC area. This shows that not only was the model able to give the correct answer most often but the results could be repeated for again for another dataset of a simalar type. 
-J48 and kNN showed intresting results as they performed diffrently in each experment. When tested with the Irish data, J48 had a better percentage of correctly classified instances than kNN. When tested with the Indian data kNN was better. 
+Testing the same models on the similar data gives interesting results. All the models including the baseline performed better when using the data from India then from Ireland. 
+In both cases Naive Bayes model preformed the best, proving a better correctly classified percentage and better ROC area. This shows that not only was the model able to give the correct answer most often but the results could be repeated for again for another dataset of a similar type. 
+J48 and kNN showed interesting results as they performed differently in each experiment. When tested with the Irish data, J48 had a better percentage of correctly classified instances than kNN. When tested with the Indian data kNN was better. However the ROC Area for is worse kNN then J48. This suggests that although kNN has a better classification score that it may not be able to reproduce the same results with a different dataset. 
+Performing the same test with a dataset with attributes that are closer to climate to Ireland. There is a large different between the temperature which don't effect the models as much as you would expect in Ireland. 
+Also there is a difference in how Ireland and India developed as countries which may have also effected the tests. We see this as area harvested is the top node in the J48 tree for India rather then year in Ireland. This suggests that the quality of seed is not as good as that in Ireland. When the model was tested with the Ireland dataset it shows that year is the most important, suggesting that the farming methods changed which caused an increase in yields. 
+
+    
+
